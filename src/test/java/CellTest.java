@@ -7,7 +7,7 @@ public class CellTest {
     @Test
     public void underPopulation() throws Exception {
         Cell cell = new Cell(true);
-        assertFalse(cell.nextGeneration().isAlive());
+        assertFalse(cell.nextGeneration().alive);
     }
 
     @Test
@@ -15,7 +15,7 @@ public class CellTest {
         Cell cell = new Cell(true);
         cell.addNeighbour(new Cell(true));
         cell.addNeighbour(new Cell(true));
-        assertTrue(cell.nextGeneration().isAlive());
+        assertTrue(cell.nextGeneration().alive);
     }
 
     @Test
@@ -23,7 +23,7 @@ public class CellTest {
         Cell cell = new Cell(false);
         cell.addNeighbour(new Cell(true));
         cell.addNeighbour(new Cell(true));
-        assertFalse(cell.nextGeneration().isAlive());
+        assertFalse(cell.nextGeneration().alive);
     }
 
     @Test
@@ -32,7 +32,7 @@ public class CellTest {
         cell.addNeighbour(new Cell(true));
         cell.addNeighbour(new Cell(true));
         cell.addNeighbour(new Cell(true));
-        assertTrue(cell.nextGeneration().isAlive());
+        assertTrue(cell.nextGeneration().alive);
     }
 
     @Test
@@ -42,6 +42,6 @@ public class CellTest {
         cell.addNeighbour(new Cell(true));
         cell.addNeighbour(new Cell(true));
         cell.addNeighbour(new Cell(true));
-        assertFalse(cell.nextGeneration().isAlive());
+        assertFalse(cell.nextGeneration().alive);
     }
 }

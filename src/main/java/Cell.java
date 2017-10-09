@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cell {
-    private final boolean alive;
+    public final boolean alive;
     private List<Cell> neighbours = new ArrayList<>();
     private int numOfAliveNeighbours = 0;
 
@@ -28,12 +28,8 @@ public class Cell {
         return !alive && numOfAliveNeighbours == 3;
     }
 
-    public boolean isAlive() {
-        return alive;
-    }
-
     public void addNeighbour(Cell cell) {
-        if (cell.isAlive())
+        if (cell.alive)
             numOfAliveNeighbours++;
         neighbours.add(cell);
     }
