@@ -34,4 +34,14 @@ public class CellTest {
         cell.addNeighbour(new Cell(true));
         assertTrue(cell.nextGeneration().isAlive());
     }
+
+    @Test
+    public void overcrowding() throws Exception {
+        Cell cell = new Cell(true);
+        cell.addNeighbour(new Cell(true));
+        cell.addNeighbour(new Cell(true));
+        cell.addNeighbour(new Cell(true));
+        cell.addNeighbour(new Cell(true));
+        assertFalse(cell.nextGeneration().isAlive());
+    }
 }
