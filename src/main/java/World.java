@@ -28,6 +28,10 @@ public class World {
                     cells[i][j].addNeighbour(cells[i][j + 1]);
                 if (j - 1 >= 0)
                     cells[i][j].addNeighbour(cells[i][j - 1]);
+                if (i - 1 >= 0)
+                    cells[i][j].addNeighbour(cells[i - 1][j]);
+                if (i + 1 < h)
+                    cells[i][j].addNeighbour(cells[i + 1][j]);
             }
         }
     }

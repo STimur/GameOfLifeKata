@@ -21,4 +21,10 @@ public class WorldTest {
         World world = new World("****");
         assertEquals(".**.", world.nextGeneration().toString());
     }
+
+    @Test
+    public void verticalCellWorldNextGenerationToString() throws Exception {
+        World world = new World("*\n*\n*\n*");
+        assertEquals(".\n*\n*\n.", world.nextGeneration().toString());
+    }
 }
