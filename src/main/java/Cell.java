@@ -11,10 +11,21 @@ public class Cell {
     }
 
     public Cell nextGeneration() {
-        if ((alive && (numOfAliveNeighbours == 2 || numOfAliveNeighbours == 3))
-                || (!alive && numOfAliveNeighbours == 3))
+        if (isAliveInNextGeneration())
             return new Cell(true);
         return new Cell(false);
+    }
+
+    private boolean isAliveInNextGeneration() {
+        return willLive() || willRevive();
+    }
+
+    private boolean willLive() {
+        return alive && (numOfAliveNeighbours == 2 || numOfAliveNeighbours == 3);
+    }
+
+    private boolean willRevive() {
+        return !alive && numOfAliveNeighbours == 3;
     }
 
     public boolean isAlive() {
