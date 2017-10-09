@@ -33,4 +33,15 @@ public class Cell {
             numOfAliveNeighbours++;
         neighbours.add(cell);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Cell cell = (Cell) o;
+
+        if (alive != cell.alive) return false;
+        return true;
+    }
 }
