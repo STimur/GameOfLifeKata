@@ -11,7 +11,8 @@ public class Cell {
     }
 
     public Cell nextGeneration() {
-        if (alive && (numOfAliveNeighbours == 2 || numOfAliveNeighbours == 3))
+        if ((alive && (numOfAliveNeighbours == 2 || numOfAliveNeighbours == 3))
+                || (!alive && numOfAliveNeighbours == 3))
             return new Cell(true);
         return new Cell(false);
     }
