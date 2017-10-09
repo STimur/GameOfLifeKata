@@ -27,4 +27,21 @@ public class WorldTest {
         World world = new World("*\n*\n*\n*");
         assertEquals(".\n*\n*\n.", world.nextGeneration().toString());
     }
+
+    @Test
+    public void rectangleCellWorldNextGenerationToString() throws Exception {
+        World world = new World("*.*\n" +
+                                "...\n" +
+                                "*..");
+        assertEquals("...\n" +
+                     ".*.\n" +
+                     "...", world.nextGeneration().toString());
+
+        world = new World("*.*\n" +
+                          "...\n" +
+                          "..*");
+        assertEquals("...\n" +
+                     ".*.\n" +
+                     "...", world.nextGeneration().toString());
+    }
 }
