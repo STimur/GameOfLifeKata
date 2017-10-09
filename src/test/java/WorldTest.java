@@ -8,4 +8,10 @@ public class WorldTest {
         World world = new World("*");
         assertEquals("*", world.toString());
     }
+
+    @Test
+    public void horizontalCellWorldToString() throws Exception {
+        World world = new World("*.**..**");
+        assertEquals("*.**..**", world.toString());
+    }
 }
