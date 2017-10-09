@@ -1,5 +1,5 @@
 public class World {
-    private final Cell[][] cells;
+    private Cell[][] cells;
     private final int h;
     private final int l;
 
@@ -16,6 +16,18 @@ public class World {
                 else
                     isAlive = false;
                 cells[i][j] = new Cell(isAlive);
+            }
+        }
+        addNeighbours();
+    }
+
+    private void addNeighbours() {
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < l; j++) {
+                if (j + 1 < l)
+                    cells[i][j].addNeighbour(cells[i][j + 1]);
+                if (j - 1 >= 0)
+                    cells[i][j].addNeighbour(cells[i][j - 1]);
             }
         }
     }
@@ -36,6 +48,11 @@ public class World {
     }
 
     public World nextGeneration() {
-        return new World(".");
+        Cell[][] newCells = new Cell[h][l];
+        for (int i = 0; i < h; i++)
+            for (int j = 0; j < l; j++)
+                newCells[i][j] = cells[i][j].nextGeneration();
+        cells = newCells;
+        return this;
     }
 }

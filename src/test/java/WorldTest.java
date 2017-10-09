@@ -15,4 +15,10 @@ public class WorldTest {
         World world = new World("*");
         assertEquals(".", world.nextGeneration().toString());
     }
+
+    @Test
+    public void horizontalCellWorldNextGenerationToString() throws Exception {
+        World world = new World("****");
+        assertEquals(".**.", world.nextGeneration().toString());
+    }
 }
