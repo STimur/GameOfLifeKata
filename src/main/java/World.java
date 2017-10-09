@@ -34,4 +34,8 @@ public class World {
         }
         return str.trim();
     }
+
+    public World nextGeneration() {
+        return new World(".");
+    }
 }

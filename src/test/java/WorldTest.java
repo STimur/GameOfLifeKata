@@ -9,4 +9,10 @@ public class WorldTest {
         World world = new World(input);
         assertEquals(input, world.toString());
     }
+
+    @Test
+    public void oneCellWorldNextGeneration() throws Exception {
+        World world = new World("*");
+        assertEquals(".", world.nextGeneration().toString());
+    }
 }
