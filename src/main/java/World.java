@@ -65,6 +65,7 @@ public class World {
             for (int j = 0; j < l; j++)
                 newCells[i][j] = cells[i][j].nextGeneration();
         cells = newCells;
+        addNeighbours();
         return this;
     }
 }
