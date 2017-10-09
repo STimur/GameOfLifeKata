@@ -6,6 +6,6 @@ public class WorldTest {
     @Test
     public void printOneCellWorld() throws Exception {
         World world = new World("*");
-        assertEquals("*", world.print());
+        assertEquals("*", world.toString());
     }
 }
