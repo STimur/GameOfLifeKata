@@ -24,24 +24,56 @@ public class World {
     private void addNeighbours() {
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < l; j++) {
-                if (j + 1 < l)
-                    cells[i][j].addNeighbour(cells[i][j + 1]);
-                if (j - 1 >= 0)
-                    cells[i][j].addNeighbour(cells[i][j - 1]);
-                if (i - 1 >= 0)
-                    cells[i][j].addNeighbour(cells[i - 1][j]);
-                if (i + 1 < h)
-                    cells[i][j].addNeighbour(cells[i + 1][j]);
-                if (i - 1 >= 0 && j - 1 >= 0)
-                    cells[i][j].addNeighbour(cells[i - 1][j - 1]);
-                if (i - 1 >= 0 && j + 1 < l)
-                    cells[i][j].addNeighbour(cells[i - 1][j + 1]);
-                if (i + 1 < h && j - 1 >= 0)
-                    cells[i][j].addNeighbour(cells[i + 1][j - 1]);
-                if (i + 1 < h && j + 1 < l)
-                    cells[i][j].addNeighbour(cells[i + 1][j + 1]);
+                addTopLeftNeighbourForCell(i, j);
+                addTopNeighbourForCell(i, j);
+                addTopRightNeighbourForCell(i, j);
+                addLeftNeighbourForCell(i, j);
+                addRightNeighbourForCell(i, j);
+                addBottomLeftNeighbourForCell(i, j);
+                addBottomNeighbourForCell(i, j);
+                addBottomRightNeighbourForCell(i, j);
             }
         }
+    }
+
+    private void addBottomRightNeighbourForCell(int i, int j) {
+        if (i + 1 < h && j + 1 < l)
+            cells[i][j].addNeighbour(cells[i + 1][j + 1]);
+    }
+
+    private void addBottomNeighbourForCell(int i, int j) {
+        if (i + 1 < h)
+            cells[i][j].addNeighbour(cells[i + 1][j]);
+    }
+
+    private void addBottomLeftNeighbourForCell(int i, int j) {
+        if (i + 1 < h && j - 1 >= 0)
+            cells[i][j].addNeighbour(cells[i + 1][j - 1]);
+    }
+
+    private void addRightNeighbourForCell(int i, int j) {
+        if (j + 1 < l)
+            cells[i][j].addNeighbour(cells[i][j + 1]);
+    }
+
+    private void addLeftNeighbourForCell(int i, int j) {
+        if (j - 1 >= 0)
+            cells[i][j].addNeighbour(cells[i][j - 1]);
+    }
+
+    private void addTopRightNeighbourForCell(int i, int j) {
+        if (i - 1 >= 0 && j + 1 < l)
+            cells[i][j].addNeighbour(cells[i - 1][j + 1]);
+    }
+
+    private void addTopNeighbourForCell(int i, int j) {
+        if (i - 1 >= 0)
+            cells[i][j].addNeighbour(cells[i - 1][j]);
+    }
+
+    private void addTopLeftNeighbourForCell(int i, int j) {
+        if (i - 1 >= 0 && j - 1 >= 0)
+            cells[i][j].addNeighbour(cells[i - 1][j - 1]);
     }
 
     @Override
