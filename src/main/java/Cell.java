@@ -10,9 +10,12 @@ public class Cell {
     }
 
     public Cell nextGen() {
-        if (numOfAliveNeighbours == 3)
-            return new Cell('*');
-        return new Cell('.');
+        if (!isAlive) {
+            if (numOfAliveNeighbours == 3)
+                return new Cell('*');
+            return new Cell('.');
+        }
+        return new Cell('*');
     }
 
     public void addNeighbour(Cell cell) {

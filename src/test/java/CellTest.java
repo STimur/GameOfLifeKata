@@ -41,4 +41,11 @@ public class CellTest {
         addManyDeadNeighboursToCell(cell, 3);
         assertDeadInNextGeneration(cell);
     }
+
+    @Test
+    public void aliveCellWithTwoAliveNeighboursStaysAlive() throws Exception {
+        Cell cell = new Cell('*');
+        addManyAliveNeighboursToCell(cell, 2);
+        assertAliveInNextGeneration(cell);
+    }
 }
