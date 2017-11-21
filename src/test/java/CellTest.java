@@ -4,18 +4,29 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class CellTest {
+    private void assertDeadInNextGeneration(Cell cell) {
+        assertFalse(cell.nextGen().isAlive);
+    }
+
+    private void assertAliveInNextGeneration(Cell cell) {
+        assertTrue(cell.nextGen().isAlive);
+    }
+
+    private void addManyAliveNeighboursToCell(Cell cell, int numOfNeighbours) {
+        for (int i = 0; i < numOfNeighbours; i++)
+            cell.addNeighbour(new Cell('*'));
+    }
+
     @Test
     public void deadCellWithNoNeighboursStaysDead() throws Exception {
         Cell cell = new Cell('.');
-        assertFalse(cell.nextGen().isAlive);
+        assertDeadInNextGeneration(cell);
     }
 
     @Test
     public void deadCellWithThreeAliveNeighboursBecomesAlive() throws Exception {
         Cell cell = new Cell('.');
-        cell.addNeighbour(new Cell('*'));
-        cell.addNeighbour(new Cell('*'));
-        cell.addNeighbour(new Cell('*'));
-        assertTrue(cell.nextGen().isAlive);
+        addManyAliveNeighboursToCell(cell, 3);
+        assertAliveInNextGeneration(cell);
     }
 }
