@@ -11,25 +11,25 @@ public class FieldTest {
     }
 
     @Test
-    public void oneDeadCellFieldStaysDead() throws Exception {
+    public void fieldWithOneDeadCell() throws Exception {
         field = new Field(".");
         assertNextGenerationFieldEquals(".");
     }
 
     @Test
-    public void threeHorizontalAliveCellField() throws Exception {
+    public void horizontalFieldWithThreeAliveCells() throws Exception {
         field = new Field("***");
         assertNextGenerationFieldEquals("...");
     }
 
     @Test
-    public void threeVerticalAliveCellField() throws Exception {
+    public void verticalFieldWithThreeAliveCells() throws Exception {
         field = new Field("*\n*\n*");
         assertNextGenerationFieldEquals(".\n.\n.");
     }
 
     @Test
-    public void blinkerOscillatorField() throws Exception {
+    public void fieldWithBlinkerOscillator() throws Exception {
         field = new Field(".....\n..*..\n..*..\n..*..\n.....");
         assertNextGenerationFieldEquals(".....\n.....\n.***.\n.....\n.....");
         assertNextGenerationFieldEquals(".....\n..*..\n..*..\n..*..\n.....");
