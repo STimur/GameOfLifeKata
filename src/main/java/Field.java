@@ -35,6 +35,14 @@ public class Field {
                     cells[y][x].addNeighbour(cells[y - 1][x]);
                 if (y != h - 1)
                     cells[y][x].addNeighbour(cells[y + 1][x]);
+                if (x != 0 && y != 0)
+                    cells[y][x].addNeighbour(cells[y - 1][x - 1]);
+                if (x != w - 1 && y != 0)
+                    cells[y][x].addNeighbour(cells[y - 1][x + 1]);
+                if (x != w - 1 && y != h - 1)
+                    cells[y][x].addNeighbour(cells[y + 1][x + 1]);
+                if (x != 0 && y != h - 1)
+                    cells[y][x].addNeighbour(cells[y + 1][x - 1]);
             }
         }
     }

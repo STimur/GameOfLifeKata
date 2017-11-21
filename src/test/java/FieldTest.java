@@ -6,7 +6,8 @@ public class FieldTest {
     private Field field;
 
     private void assertNextGenerationFieldEquals(String expected) {
-        assertEquals(expected, field.nextGen().toString());
+        field = field.nextGen();
+        assertEquals(expected, field.toString());
     }
 
     @Test
@@ -25,5 +26,12 @@ public class FieldTest {
     public void threeVerticalAliveCellField() throws Exception {
         field = new Field("*\n*\n*");
         assertNextGenerationFieldEquals(".\n*\n.");
+    }
+
+    @Test
+    public void blinkerOscillatorField() throws Exception {
+        field = new Field(".*.\n.*.\n.*.");
+        assertNextGenerationFieldEquals("...\n***\n...");
+        assertNextGenerationFieldEquals(".*.\n.*.\n.*.");
     }
 }
