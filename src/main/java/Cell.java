@@ -15,6 +15,8 @@ public class Cell {
                 return new Cell('*');
             return new Cell('.');
         }
+        if (numOfAliveNeighbours < 2)
+            return new Cell('.');
         return new Cell('*');
     }
 
