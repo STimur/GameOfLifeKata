@@ -1,23 +1,35 @@
 public class Field {
     private final Cell[][] cells;
-    private final int l;
+    private final int w;
     private final int h;
 
     public Field(String input) {
         String[] lines = input.split("\n");
         h = lines.length;
-        l = lines[0].length();
-        cells = new Cell[h][l];
+        w = lines[0].length();
+        cells = new Cell[h][w];
         initCells(lines);
         initCellsNeighbours();
     }
 
+    public Field nextGen() {
+        Cell[][] nextGenCells = new Cell[h][w];
+        for (int y = 0; y < h; y++)
+            for (int x = 0; x < w; x++)
+                nextGenCells[y][x] = cells[y][x].nextGen();
+        return new Field(cellsToString(nextGenCells));
+    }
+
+    public String toString() {
+        return cellsToString(cells);
+    }
+
     private void initCellsNeighbours() {
         for (int y = 0; y < h; y++) {
-            for (int x = 0; x < l; x++) {
+            for (int x = 0; x < w; x++) {
                 if (x != 0)
                     cells[y][x].addNeighbour(cells[y][x - 1]);
-                if (x != l - 1)
+                if (x != w - 1)
                     cells[y][x].addNeighbour(cells[y][x + 1]);
                 if (y != 0)
                     cells[y][x].addNeighbour(cells[y - 1][x]);
@@ -29,24 +41,14 @@ public class Field {
 
     private void initCells(String[] lines) {
         for (int y = 0; y < h; y++)
-            for (int x = 0; x < l; x++)
+            for (int x = 0; x < w; x++)
                 cells[y][x] = new Cell(lines[y].charAt(x));
     }
 
-    public Field nextGen() {
-        String input = "";
-        for (int y = 0; y < h; y++) {
-            for (int x = 0; x < l; x++)
-                input += cells[y][x].nextGen().toString();
-            input += "\n";
-        }
-        return new Field(input.trim());
-    }
-
-    public String toString() {
+    private String cellsToString(Cell[][] cells) {
         String str = "";
         for (int y = 0; y < h; y++) {
-            for (int x = 0; x < l; x++)
+            for (int x = 0; x < w; x++)
                 str += cells[y][x].toString();
             str += "\n";
         }
