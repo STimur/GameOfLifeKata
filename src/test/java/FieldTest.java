@@ -20,4 +20,10 @@ public class FieldTest {
         field = new Field("***");
         assertNextGenerationFieldEquals(".*.");
     }
+
+    @Test
+    public void threeVerticalAliveCellField() throws Exception {
+        field = new Field("*\n*\n*");
+        assertNextGenerationFieldEquals(".\n*\n.");
+    }
 }
