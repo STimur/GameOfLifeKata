@@ -19,19 +19,19 @@ public class FieldTest {
     @Test
     public void threeHorizontalAliveCellField() throws Exception {
         field = new Field("***");
-        assertNextGenerationFieldEquals(".*.");
+        assertNextGenerationFieldEquals("...");
     }
 
     @Test
     public void threeVerticalAliveCellField() throws Exception {
         field = new Field("*\n*\n*");
-        assertNextGenerationFieldEquals(".\n*\n.");
+        assertNextGenerationFieldEquals(".\n.\n.");
     }
 
     @Test
     public void blinkerOscillatorField() throws Exception {
-        field = new Field(".*.\n.*.\n.*.");
-        assertNextGenerationFieldEquals("...\n***\n...");
-        assertNextGenerationFieldEquals(".*.\n.*.\n.*.");
+        field = new Field(".....\n..*..\n..*..\n..*..\n.....");
+        assertNextGenerationFieldEquals(".....\n.....\n.***.\n.....\n.....");
+        assertNextGenerationFieldEquals(".....\n..*..\n..*..\n..*..\n.....");
     }
 }
