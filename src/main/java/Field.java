@@ -1,17 +1,26 @@
 public class Field {
     private final Cell[] cells;
+    private final int l;
 
     public Field(String input) {
-        int l = input.length();
+        l = input.length();
         cells = new Cell[l];
-        for (int i = 0; i < l; i++)
-            cells[i] = new Cell(input.charAt(i));
+        initCells(input);
+        initCellsNeighbours();
+    }
+
+    private void initCellsNeighbours() {
         for (int i = 0; i < l; i++) {
             if (i != 0)
                 cells[i].addNeighbour(cells[i - 1]);
             if (i != l - 1)
                 cells[i].addNeighbour(cells[i + 1]);
         }
+    }
+
+    private void initCells(String input) {
+        for (int i = 0; i < l; i++)
+            cells[i] = new Cell(input.charAt(i));
     }
 
     public Field nextGen() {
@@ -23,7 +32,7 @@ public class Field {
 
     public String toString() {
         String str = "";
-        for (int i = 0; i < cells.length; i++)
+        for (int i = 0; i < l; i++)
             str += cells[i];
         return str;
     }
