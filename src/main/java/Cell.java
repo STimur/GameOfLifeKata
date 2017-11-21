@@ -16,6 +16,7 @@ public class Cell {
     }
 
     public void addNeighbour(Cell cell) {
-        numOfAliveNeighbours++;
+        if (cell.isAlive)
+            numOfAliveNeighbours++;
     }
 }

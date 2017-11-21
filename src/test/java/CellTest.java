@@ -17,6 +17,11 @@ public class CellTest {
             cell.addNeighbour(new Cell('*'));
     }
 
+    private void addManyDeadNeighboursToCell(Cell cell, int numOfNeighbours) {
+        for (int i = 0; i < numOfNeighbours; i++)
+            cell.addNeighbour(new Cell('.'));
+    }
+
     @Test
     public void deadCellWithNoNeighboursStaysDead() throws Exception {
         Cell cell = new Cell('.');
@@ -28,5 +33,12 @@ public class CellTest {
         Cell cell = new Cell('.');
         addManyAliveNeighboursToCell(cell, 3);
         assertAliveInNextGeneration(cell);
+    }
+
+    @Test
+    public void deadCellWithThreeDeadNeighboursStaysDead() throws Exception {
+        Cell cell = new Cell('.');
+        addManyDeadNeighboursToCell(cell, 3);
+        assertDeadInNextGeneration(cell);
     }
 }
