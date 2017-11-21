@@ -34,4 +34,14 @@ public class FieldTest {
         assertNextGenerationFieldEquals(".....\n.....\n.***.\n.....\n.....");
         assertNextGenerationFieldEquals(".....\n..*..\n..*..\n..*..\n.....");
     }
+
+    @Test
+    public void fieldWithGlider() throws Exception {
+        field = new Field(".....\n.*.*.\n..**.\n..*..\n.....");
+        assertNextGenerationFieldEquals(".....\n...*.\n.*.*.\n..**.\n.....");
+        assertNextGenerationFieldEquals(".....\n..*..\n...**\n..**.\n.....");
+        assertNextGenerationFieldEquals(".....\n...*.\n....*\n..***\n.....");
+        assertNextGenerationFieldEquals(".....\n.....\n..*.*\n...**\n...*.");
+        assertNextGenerationFieldEquals(".....\n.....\n....*\n..*.*\n...**");
+    }
 }
