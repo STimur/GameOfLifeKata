@@ -8,4 +8,10 @@ public class FieldTest {
         Field field = new Field(".");
         assertEquals(".", field.nextGen().toString());
     }
+
+    @Test
+    public void threeHorizontalAliveCellField() throws Exception {
+        Field field = new Field("***");
+        assertEquals(".*.", field.nextGen().toString());
+    }
 }

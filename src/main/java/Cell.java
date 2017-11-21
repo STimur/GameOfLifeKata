@@ -47,4 +47,10 @@ public class Cell {
         if (cell.isAlive)
             numOfAliveNeighbours++;
     }
+
+    public String toString() {
+        if (isAlive)
+            return "*";
+        return ".";
+    }
 }
