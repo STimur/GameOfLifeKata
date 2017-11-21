@@ -1,5 +1,3 @@
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 public class Cell {
     public final boolean isAlive;
     private int numOfAliveNeighbours;
@@ -7,10 +5,8 @@ public class Cell {
     public Cell(char c) {
         if (c == '.')
             isAlive = false;
-        else if (c == '*')
-            isAlive = true;
         else
-            throw new NotImplementedException();
+            isAlive = true;
     }
 
     public Cell nextGen() {
