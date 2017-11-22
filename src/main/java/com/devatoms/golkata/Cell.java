@@ -15,10 +15,12 @@ public class Cell {
     }
 
     public Cell nextGen() {
-        if (isAlive && numOfAliveNeighbours == 2)
-            return new Cell('*');
-        if (numOfAliveNeighbours == 3)
+        if (isAliveInNextGeneration())
             return new Cell('*');
         return new Cell('.');
+    }
+
+    private boolean isAliveInNextGeneration() {
+        return numOfAliveNeighbours == 3 || (isAlive && numOfAliveNeighbours == 2);
     }
 }
