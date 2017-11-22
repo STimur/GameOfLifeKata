@@ -8,4 +8,6 @@
 ## Level 2
 1. Make field cyclic - all cells have 8 neighbours.
 2. Write test for field with blinker oscillator.
-3. Write test for field with glider spaceship.
+3. Add a simple console app which shows blinker oscillator in action.
+4. Write test for field with glider spaceship.
+5. Change console app to show glider spaceship in action.
