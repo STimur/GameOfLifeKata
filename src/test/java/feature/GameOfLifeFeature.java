@@ -15,11 +15,11 @@ public class GameOfLifeFeature {
     @Test
     @Parameters({
             ".*.\n.*.\n.*., ...\n***\n...",
-            "...\n***\n..., .*.\n.*.\n.*."
     })
     public void
-    blinker_oscillator_pattern(String input, String nextGenerationFieldAsString) {
-        Field field = new Field(input);
-        assertThat(field.nextGen().toString(), is(nextGenerationFieldAsString));
+    blinker_oscillator_pattern(String firstStepFieldAsString, String secondStepFieldAsString) {
+        Field field = new Field(firstStepFieldAsString).nextGen();
+        assertThat(field.toString(), is(secondStepFieldAsString));
+        assertThat(field.nextGen().toString(), is(firstStepFieldAsString));
     }
 }
