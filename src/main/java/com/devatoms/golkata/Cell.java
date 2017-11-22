@@ -23,4 +23,11 @@ public class Cell {
     private boolean isAliveInNextGeneration() {
         return numOfAliveNeighbours == 3 || (isAlive && numOfAliveNeighbours == 2);
     }
+
+    @Override
+    public String toString() {
+        if (isAlive)
+            return "*";
+        return ".";
+    }
 }
