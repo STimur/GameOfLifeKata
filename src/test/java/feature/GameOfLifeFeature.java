@@ -1,5 +1,6 @@
-package com.devatoms.golkata;
+package feature;
 
+import com.devatoms.golkata.Field;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Test;
