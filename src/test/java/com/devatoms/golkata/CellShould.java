@@ -15,4 +15,11 @@ public class CellShould {
         cell.addNeighbour(new Cell('*'));
         assertThat(cell.nextGen().isAlive, is(true));
     }
+
+    @Test
+    public void
+    stay_dead_if_has_no_neighbours() {
+        Cell cell = new Cell('.');
+        assertThat(cell.nextGen().isAlive, is(false));
+    }
 }
