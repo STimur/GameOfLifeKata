@@ -10,7 +10,7 @@
 
 ## Level 2
 1. Make field cyclic - all cells have 8 neighbours.
-5. Rewrite test for field with blinker oscillator on 5x5 field.
-2. Write test for field with glider spaceship on 5x5 field.
+2. Rewrite test for field with blinker oscillator on 5x5 field.
+3. Write test for field with glider spaceship on 5x5 field.
 ### Additional
-3. Change console app to show glider spaceship in action.
+4. Change console app to show glider spaceship in action.
