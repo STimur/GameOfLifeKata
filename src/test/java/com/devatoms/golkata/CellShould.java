@@ -22,4 +22,13 @@ public class CellShould {
         Cell cell = new Cell('.');
         assertThat(cell.nextGen().isAlive, is(false));
     }
+
+    @Test
+    public void
+    stay_alive_if_has_two_alive_neighbours() {
+        Cell cell = new Cell('*');
+        cell.addNeighbour(new Cell('*'));
+        cell.addNeighbour(new Cell('*'));
+        assertThat(cell.nextGen().isAlive, is(true));
+    }
 }

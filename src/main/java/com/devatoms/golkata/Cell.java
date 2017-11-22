@@ -15,6 +15,8 @@ public class Cell {
     }
 
     public Cell nextGen() {
+        if (isAlive && numOfAliveNeighbours == 2)
+            return new Cell('*');
         if (numOfAliveNeighbours == 3)
             return new Cell('*');
         return new Cell('.');
