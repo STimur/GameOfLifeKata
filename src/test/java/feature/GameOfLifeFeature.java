@@ -34,7 +34,7 @@ public class GameOfLifeFeature {
             "...\n***\n..., .*.\n.*.\n.*."
     })
     public void
-    generate_next_generation(String input, String nextGenerationFieldString) {
+    create_next_generation(String input, String nextGenerationFieldString) {
         Field field = new Field(input);
         assertThat(field.nextGen().toString(), is(nextGenerationFieldString));
     }
