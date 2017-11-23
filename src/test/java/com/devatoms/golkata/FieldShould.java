@@ -28,11 +28,11 @@ public class FieldShould {
     @Test
     @Parameters({
             "., .",
-            "***, .*.",
-            "*\n*\n*, .\n*\n.",
-            ".*\n**, **\n**",
-            ".*.\n.*.\n.*., ...\n***\n...",
-            "...\n***\n..., .*.\n.*.\n.*."
+            "***, ...",
+            "*\n*\n*, .\n.\n.",
+            ".*\n**, ..\n..",
+            ".*.\n.*.\n.*., ***\n***\n***",
+            "...\n***\n..., ***\n***\n***"
     })
     public void
     create_next_generation(String input, String nextGenerationFieldAsString) {

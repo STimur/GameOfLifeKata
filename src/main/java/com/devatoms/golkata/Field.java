@@ -48,41 +48,73 @@ public class Field {
     private void addSouthWestNeighbourForCell(int y, int x) {
         if (y != h - 1 && x != 0)
             cells[y][x].addNeighbour(cells[y + 1][x - 1]);
+        else if (y != h - 1 && x == 0)
+            cells[y][x].addNeighbour(cells[y + 1][l - 1]);
+        else if (y == h - 1 && x != 0)
+            cells[y][x].addNeighbour(cells[0][x - 1]);
+        else
+            cells[y][x].addNeighbour(cells[0][l - 1]);
     }
 
     private void addSouthEastNeighbourForCell(int y, int x) {
         if (y != h - 1 && x != l - 1)
             cells[y][x].addNeighbour(cells[y + 1][x + 1]);
+        else if (y != h - 1 && x == l - 1)
+            cells[y][x].addNeighbour(cells[y + 1][0]);
+        else if (y == h - 1 && x != l - 1)
+            cells[y][x].addNeighbour(cells[0][x + 1]);
+        else
+            cells[y][x].addNeighbour(cells[0][0]);
     }
 
     private void addNorthEastNeighbourForCell(int y, int x) {
         if (y != 0 && x != l - 1)
             cells[y][x].addNeighbour(cells[y - 1][x + 1]);
+        else if (y != 0 && x == l - 1)
+            cells[y][x].addNeighbour(cells[y - 1][0]);
+        else if (y == 0 && x != l - 1)
+            cells[y][x].addNeighbour(cells[h - 1][x + 1]);
+        else
+            cells[y][x].addNeighbour(cells[h - 1][0]);
     }
 
     private void addNorthWestNeighbourForCell(int y, int x) {
         if (y != 0 && x != 0)
             cells[y][x].addNeighbour(cells[y - 1][x - 1]);
+        else if (y != 0 && x == 0)
+            cells[y][x].addNeighbour(cells[y - 1][l - 1]);
+        else if (y == 0 && x != 0)
+            cells[y][x].addNeighbour(cells[h - 1][x - 1]);
+        else
+            cells[y][x].addNeighbour(cells[h - 1][l - 1]);
     }
 
     private void addSouthNeighbourForCell(int y, int x) {
         if (y != h - 1)
             cells[y][x].addNeighbour(cells[y + 1][x]);
+        else
+            cells[y][x].addNeighbour(cells[0][x]);
     }
 
     private void addNorthNeighbourForCell(int y, int x) {
         if (y != 0)
             cells[y][x].addNeighbour(cells[y - 1][x]);
+        else
+            cells[y][x].addNeighbour(cells[h - 1][x]);
     }
 
     private void addWestNeighbourForCell(int y, int x) {
         if (x != 0)
             cells[y][x].addNeighbour(cells[y][x - 1]);
+        else
+            cells[y][x].addNeighbour(cells[y][l - 1]);
     }
 
     private void addEastNeighbourForCell(int y, int x) {
         if (x != l - 1)
             cells[y][x].addNeighbour(cells[y][x + 1]);
+        else
+            cells[y][x].addNeighbour(cells[y][0]);
     }
 
     private String cellsToString(Cell[][] nextGenerationCells) {
