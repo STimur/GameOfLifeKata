@@ -1,25 +1,37 @@
 package feature;
 
 import com.devatoms.golkata.Field;
-import junitparams.JUnitParamsRunner;
-import junitparams.Parameters;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-@RunWith(JUnitParamsRunner.class)
 public class GameOfLifeFeature {
 
+    private Field field;
+
+    private void assertNextGenerationFieldIs(String fieldAsString) {
+        field = field.nextGen();
+        assertThat(field.toString(), is(fieldAsString));
+    }
+
     @Test
-    @Parameters({
-            ".*.\n.*.\n.*., ...\n***\n...",
-    })
     public void
-    blinker_oscillator_pattern(String firstStepFieldAsString, String secondStepFieldAsString) {
-        Field field = new Field(firstStepFieldAsString).nextGen();
-        assertThat(field.toString(), is(secondStepFieldAsString));
-        assertThat(field.nextGen().toString(), is(firstStepFieldAsString));
+    field_with_blinker_oscillator_pattern() {
+        field = new Field(".....\n..*..\n..*..\n..*..\n.....");
+        assertNextGenerationFieldIs(".....\n.....\n.***.\n.....\n.....");
+        assertNextGenerationFieldIs(".....\n..*..\n..*..\n..*..\n.....");
+    }
+
+    @Test
+    public void
+    field_with_glider_spaceship_pattern() {
+        field = new Field(".....\n.*.*.\n..**.\n..*..\n.....");
+        assertNextGenerationFieldIs(".....\n...*.\n.*.*.\n..**.\n.....");
+        assertNextGenerationFieldIs(".....\n.*.*.\n..**.\n..*..\n.....");
+        assertNextGenerationFieldIs(".....\n..*..\n...**\n..**.\n.....");
+        assertNextGenerationFieldIs(".....\n...*.\n....*\n..***\n.....");
+        assertNextGenerationFieldIs(".....\n.....\n..*.*\n...**\n...*.");
+        assertNextGenerationFieldIs(".....\n.....\n....*\n..*.*\n...**");
     }
 }

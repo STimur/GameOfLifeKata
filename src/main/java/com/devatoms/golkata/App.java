@@ -2,7 +2,7 @@ package com.devatoms.golkata;
 
 public class App {
     public static void main(String[] args) throws InterruptedException {
-        Field field = new Field(".*.\n.*.\n.*.");
+        Field field = new Field(".....\n..*..\n..*..\n..*..\n.....");
         for (int i = 0; ; i++) {
             System.out.println("Generation " + i + ":");
             System.out.println(field);
