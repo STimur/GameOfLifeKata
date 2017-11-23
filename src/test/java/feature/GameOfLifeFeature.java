@@ -18,7 +18,7 @@ public class GameOfLifeFeature {
     @Test
     public void
     field_with_blinker_oscillator_pattern() {
-        field = new Field(".....\n..*..\n..*..\n..*..\n.....");
+        field = new Field(Field.BLINKER_OSCILLATOR_PATTERN);
         assertNextGenerationFieldIs(".....\n.....\n.***.\n.....\n.....");
         assertNextGenerationFieldIs(".....\n..*..\n..*..\n..*..\n.....");
     }
@@ -26,7 +26,7 @@ public class GameOfLifeFeature {
     @Test
     public void
     field_with_glider_spaceship_pattern() {
-        field = new Field(".....\n.*.*.\n..**.\n..*..\n.....");
+        field = new Field(Field.GLIDER_SPACESHIP_PATTERN);
         assertNextGenerationFieldIs(".....\n...*.\n.*.*.\n..**.\n.....");
         assertNextGenerationFieldIs(".....\n..*..\n...**\n..**.\n.....");
         assertNextGenerationFieldIs(".....\n...*.\n....*\n..***\n.....");

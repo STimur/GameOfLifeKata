@@ -1,6 +1,8 @@
 package com.devatoms.golkata;
 
 public class Field {
+    public static final String BLINKER_OSCILLATOR_PATTERN = ".....\n..*..\n..*..\n..*..\n.....";
+    public static final String GLIDER_SPACESHIP_PATTERN = ".....\n.*.*.\n..**.\n..*..\n.....";
     private final Cell[][] cells;
     private final int l;
     private final int h;
